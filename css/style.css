@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0%;
+  padding: 0%;
+}
+
+:root {
+  --dark-blue: hsl(240, 38%, 20%);
+  --grayish-blue: hsl(240, 18%, 77%);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 3rem;
+}
+
+.container {
+  max-width: 75rem;
+  margin: 0 auto;
+}
+
+.review {
+  display: none;
+  align-items: center;
+  position: relative;
+}
+
+.review.active {
+  display: flex;
+}
+
+.review > * {
+  flex: 1;
+}
+
+.review > .quote-side > blockquote {
+  color: var(--dark-blue);
+  font-size: 1.5rem;
+}
+
+.review > .quote-side::before {
+  content: '';
+  position: absolute;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0)
+    ),
+    url('/images/pattern-quotes.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 4rem;
+  width: 5rem;
+  top: 16%;
+  left: 8%;
+}
+
+.review > .quote-side > blockquote > span {
+  display: block;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-top: 3.5rem;
+}
+
+.review > .quote-side > blockquote > span > cite {
+  color: var(--grayish-blue);
+  font-weight: 300;
+  margin-left: 5px;
+}
+
+.review > .image-side {
+  position: relative;
+}
+
+.review > .image-side::before {
+  content: '';
+  position: absolute;
+  background-image: url('/images/pattern-bg.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  top: -23%;
+  left: -11%;
+  height: 141%;
+  width: 101%;
+  z-index: -1;
+  overflow: visible;
+}
+
+.review .image-cover > img {
+  height: 25rem;
+  width: 30rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.review > .image-side > .button-group {
+  position: absolute;
+  bottom: -0.5rem;
+  left: 12%;
+}
+
+.button-group > button {
+  background-color: #ffffff;
+  border: 0;
+  padding: 0.7rem 1.5rem;
+  cursor: pointer;
+}
+
+.button-group > button:focus {
+  outline: none;
+}
+
+.button-group > button.pre {
+  border-radius: 1rem 0 0 1rem;
+}
+.button-group > button.next {
+  border-radius: 0 1rem 1rem 0;
+  margin-left: -1rem;
+}
+
+/*
+* mobile site
+*/
+@media only screen and (max-width: 884px) {
+  .container {
+    max-width: 425px;
+  }
+
+  .review {
+    flex-direction: column;
+    margin-top: 3rem;
+  }
+
+  .review .quote-side {
+    order: 2;
+  }
+
+  .review .image-side {
+    order: 1;
+  }
+
+  .review > .quote-side > blockquote {
+    font-size: 1.2rem;
+    margin-top: 3rem;
+    text-align: center;
+  }
+
+  .review > .quote-side > blockquote > span {
+    margin-top: 3rem;
+  }
+
+  .review > .quote-side > blockquote > span > cite {
+    display: block;
+    font-weight: 300;
+    margin-top: 0.3rem;
+    text-decoration: none;
+  }
+
+  .review .image-cover > img {
+    height: 20rem;
+    width: 22rem;
+  }
+
+  .review > .image-side::before {
+    top: -18%;
+    left: -10%;
+    height: 123%;
+    width: 120%;
+    z-index: -1;
+    overflow: visible;
+  }
+}
